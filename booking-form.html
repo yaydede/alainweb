@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book a Session - Alain Carpenter Tutoring</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        .booking-container {
+            max-width: 600px;
+            margin: 100px auto 50px;
+            padding: 2rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        .booking-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .booking-header h1 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        .time-slots {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+        .time-slot {
+            padding: 0.5rem;
+            text-align: center;
+            background: var(--bg-light);
+            border: 2px solid transparent;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .time-slot:hover {
+            border-color: var(--secondary-color);
+        }
+        .time-slot.selected {
+            background: var(--secondary-color);
+            color: white;
+            border-color: var(--secondary-color);
+        }
+        .time-slot.unavailable {
+            background: #f0f0f0;
+            color: #999;
+            cursor: not-allowed;
+        }
+        .calendar-widget {
+            margin: 1rem 0;
+        }
+        .success-message {
+            display: none;
+            background: #d4edda;
+            color: #155724;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+        @media (max-width: 768px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            .time-slots {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-text">Alain Carpenter</span>
+                <span class="logo-subtitle">Math & Science Tutoring</span>
+            </div>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link">← Back to Main Site</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="booking-container">
+        <div class="booking-header">
+            <h1>Book Your Tutoring Session</h1>
+            <p>Select your preferred date, time, and subject area</p>
+        </div>
+
+        <div class="success-message" id="successMessage">
+            Your booking request has been submitted! You'll receive a confirmation email shortly.
+        </div>
+
+        <form id="bookingForm">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="firstName">First Name *</label>
+                    <input type="text" id="firstName" name="firstName" required>
+                </div>
+                <div class="form-group">
+                    <label for="lastName">Last Name *</label>
+                    <input type="text" id="lastName" name="lastName" required>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone</label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="sessionType">Session Type *</label>
+                <select id="sessionType" name="sessionType" required>
+                    <option value="">Select session type</option>
+                    <option value="60min">60-minute Standard Session</option>
+                    <option value="90min">90-minute Extended Session</option>
+                    <option value="30min">30-minute Consultation</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="subject">Subject Area *</label>
+                <select id="subject" name="subject" required>
+                    <option value="">Select subject</option>
+                    <optgroup label="Mathematics">
+                        <option value="calculus">Calculus</option>
+                        <option value="linear-algebra">Linear Algebra</option>
+                        <option value="differential-equations">Differential Equations</option>
+                        <option value="statistics">Statistics & Probability</option>
+                        <option value="discrete-math">Discrete Mathematics</option>
+                    </optgroup>
+                    <optgroup label="Chemistry">
+                        <option value="general-chem">General Chemistry</option>
+                        <option value="organic-chem">Organic Chemistry</option>
+                        <option value="physical-chem">Physical Chemistry</option>
+                        <option value="biochemistry">Biochemistry</option>
+                    </optgroup>
+                    <optgroup label="Physics">
+                        <option value="mechanics">Classical Mechanics</option>
+                        <option value="em">Electricity & Magnetism</option>
+                        <option value="thermo">Thermodynamics</option>
+                        <option value="modern-physics">Modern Physics</option>
+                    </optgroup>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="date">Preferred Date *</label>
+                <input type="date" id="date" name="date" required min="">
+            </div>
+
+            <div class="form-group">
+                <label>Preferred Time *</label>
+                <div class="time-slots" id="timeSlots">
+                    <div class="time-slot" data-time="09:00">9:00 AM</div>
+                    <div class="time-slot" data-time="10:00">10:00 AM</div>
+                    <div class="time-slot" data-time="11:00">11:00 AM</div>
+                    <div class="time-slot" data-time="14:00">2:00 PM</div>
+                    <div class="time-slot" data-time="15:00">3:00 PM</div>
+                    <div class="time-slot" data-time="16:00">4:00 PM</div>
+                    <div class="time-slot" data-time="17:00">5:00 PM</div>
+                    <div class="time-slot" data-time="18:00">6:00 PM</div>
+                    <div class="time-slot" data-time="19:00">7:00 PM</div>
+                </div>
+                <input type="hidden" id="selectedTime" name="selectedTime" required>
+            </div>
+
+            <div class="form-group">
+                <label for="sessionMode">Session Mode *</label>
+                <select id="sessionMode" name="sessionMode" required>
+                    <option value="">Select mode</option>
+                    <option value="online">Online (Zoom)</option>
+                    <option value="in-person">In-Person</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="topics">Specific Topics or Questions</label>
+                <textarea id="topics" name="topics" rows="4" placeholder="Tell me what specific topics you'd like to cover or any questions you have..."></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" required> I understand this is a booking request and will receive confirmation via email
+                </label>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Booking Request</button>
+        </form>
+    </div>
+
+    <script>
+        // Set minimum date to tomorrow
+        const dateInput = document.getElementById('date');
+        const tomorrow = new Date();
+        tomorrow.setDate(tomorrow.getDate() + 1);
+        dateInput.min = tomorrow.toISOString().split('T')[0];
+
+        // Time slot selection
+        const timeSlots = document.querySelectorAll('.time-slot');
+        const selectedTimeInput = document.getElementById('selectedTime');
+        
+        timeSlots.forEach(slot => {
+            slot.addEventListener('click', function() {
+                if (!this.classList.contains('unavailable')) {
+                    timeSlots.forEach(s => s.classList.remove('selected'));
+                    this.classList.add('selected');
+                    selectedTimeInput.value = this.dataset.time;
+                }
+            });
+        });
+
+        // Simulate some unavailable slots
+        dateInput.addEventListener('change', function() {
+            // Reset all slots
+            timeSlots.forEach(slot => {
+                slot.classList.remove('unavailable');
+            });
+            
+            // Randomly make some slots unavailable (for demo)
+            const dayOfWeek = new Date(this.value).getDay();
+            if (dayOfWeek === 0 || dayOfWeek === 6) {
+                // Weekend - morning slots unavailable
+                timeSlots[0].classList.add('unavailable');
+                timeSlots[1].classList.add('unavailable');
+                timeSlots[2].classList.add('unavailable');
+            }
+        });
+
+        // Form submission
+        document.getElementById('bookingForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Validate time selection
+            if (!selectedTimeInput.value) {
+                alert('Please select a time slot');
+                return;
+            }
+            
+            // Collect form data
+            const formData = new FormData(this);
+            const bookingData = {
+                name: formData.get('firstName') + ' ' + formData.get('lastName'),
+                email: formData.get('email'),
+                phone: formData.get('phone'),
+                sessionType: formData.get('sessionType'),
+                subject: formData.get('subject'),
+                date: formData.get('date'),
+                time: formData.get('selectedTime'),
+                mode: formData.get('sessionMode'),
+                topics: formData.get('topics')
+            };
+            
+            // Here you would send the data to your backend or email service
+            console.log('Booking data:', bookingData);
+            
+            // Show success message
+            document.getElementById('successMessage').style.display = 'block';
+            this.reset();
+            timeSlots.forEach(s => s.classList.remove('selected'));
+            selectedTimeInput.value = '';
+            
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            
+            // Hide success message after 10 seconds
+            setTimeout(() => {
+                document.getElementById('successMessage').style.display = 'none';
+            }, 10000);
+        });
+    </script>
+
+    <!-- EmailJS Integration (Optional) -->
+    <script type="text/javascript">
+        // To enable email sending, sign up at emailjs.com and add your credentials
+        // (function(){
+        //     emailjs.init("YOUR_PUBLIC_KEY");
+        // })();
+        
+        // Add this to the form submission handler:
+        // emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", bookingData)
+        //     .then(function(response) {
+        //         console.log('SUCCESS!', response.status, response.text);
+        //     }, function(error) {
+        //         console.log('FAILED...', error);
+        //     });
+    </script>
+</body>
+</html>

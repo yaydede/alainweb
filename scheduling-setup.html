@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scheduling Setup Guide - Alain Carpenter Tutoring</title>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: #faf8f5;
+            color: #333;
+        }
+        h1 {
+            color: #8b7355;
+            border-bottom: 3px solid #d4a574;
+            padding-bottom: 1rem;
+        }
+        h2 {
+            color: #8b7355;
+            margin-top: 2rem;
+        }
+        .step {
+            background: white;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .step h3 {
+            color: #4a90e2;
+            margin-top: 0;
+        }
+        code {
+            background: #f0e6d8;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+        }
+        pre {
+            background: #f0e6d8;
+            padding: 1rem;
+            border-radius: 8px;
+            overflow-x: auto;
+        }
+        .option {
+            border-left: 4px solid #4a90e2;
+            padding-left: 1rem;
+            margin: 1rem 0;
+        }
+        .warning {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        a {
+            color: #4a90e2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Scheduling System Setup Guide</h1>
+    <p>This guide will help you set up an automated scheduling system for your tutoring website. Choose the option that best fits your needs.</p>
+
+    <h2>Option 1: Cal.com (Recommended - Free)</h2>
+    
+    <div class="step">
+        <h3>Step 1: Create a Cal.com Account</h3>
+        <ol>
+            <li>Visit <a href="https://cal.com" target="_blank">cal.com</a></li>
+            <li>Click "Get Started for free"</li>
+            <li>Sign up with your email or Google account</li>
+            <li>Choose a username (e.g., "alain-carpenter")</li>
+        </ol>
+    </div>
+
+    <div class="step">
+        <h3>Step 2: Configure Your Availability</h3>
+        <ol>
+            <li>Go to Settings → Availability</li>
+            <li>Set your working hours</li>
+            <li>Add buffer time between sessions</li>
+            <li>Set minimum booking notice (e.g., 24 hours)</li>
+        </ol>
+    </div>
+
+    <div class="step">
+        <h3>Step 3: Create Event Types</h3>
+        <ol>
+            <li>Click "Event Types" → "New Event Type"</li>
+            <li>Create different session types:
+                <ul>
+                    <li>60-minute Tutoring Session</li>
+                    <li>90-minute Extended Session</li>
+                    <li>30-minute Consultation</li>
+                </ul>
+            </li>
+            <li>For each event type, add:
+                <ul>
+                    <li>Description</li>
+                    <li>Location (Zoom, In-person, etc.)</li>
+                    <li>Custom questions (Subject area, specific topics)</li>
+                </ul>
+            </li>
+        </ol>
+    </div>
+
+    <div class="step">
+        <h3>Step 4: Integrate with Your Website</h3>
+        <p>Replace the placeholder in <code>script.js</code> line 166:</p>
+        <pre><code>// Change this line:
+const calUsername = 'YOUR_CAL_LINK';
+
+// To your actual Cal.com username:
+const calUsername = 'alain-carpenter'; // Your actual username</code></pre>
+        
+        <p>The scheduling widget will automatically load on your website!</p>
+    </div>
+
+    <div class="step">
+        <h3>Step 5: Email Notifications</h3>
+        <ol>
+            <li>In Cal.com, go to Settings → Workflows</li>
+            <li>Create automated emails for:
+                <ul>
+                    <li>Booking confirmation</li>
+                    <li>Reminder 24 hours before</li>
+                    <li>Follow-up after session</li>
+                </ul>
+            </li>
+        </ol>
+    </div>
+
+    <h2>Option 2: Calendly (Alternative)</h2>
+    
+    <div class="option">
+        <p>Similar to Cal.com but with different features. Free plan includes:</p>
+        <ul>
+            <li>One event type</li>
+            <li>Unlimited bookings</li>
+            <li>Calendar integration</li>
+        </ul>
+        <p>To use Calendly instead, replace the Cal.com code in <code>script.js</code> with:</p>
+        <pre><code>// Calendly integration
+const calendlyUsername = 'your-calendly-username';
+const script = document.createElement('script');
+script.src = 'https://assets.calendly.com/assets/external/widget.js';
+script.async = true;
+document.body.appendChild(script);
+
+script.onload = function() {
+    Calendly.initInlineWidget({
+        url: `https://calendly.com/${calendlyUsername}/60min`,
+        parentElement: document.getElementById('cal-embed'),
+        prefill: {},
+        utm: {}
+    });
+};</code></pre>
+    </div>
+
+    <h2>Option 3: Custom Email-Based Booking</h2>
+    
+    <div class="option">
+        <p>For a simpler approach without third-party services, you can use the enhanced booking form I've created. This option:</p>
+        <ul>
+            <li>Collects booking requests via form</li>
+            <li>Sends emails using EmailJS (free up to 200 emails/month)</li>
+            <li>Requires manual confirmation of bookings</li>
+        </ul>
+        <p>See <code>booking-form.html</code> for the implementation.</p>
+    </div>
+
+    <h2>Option 4: Google Calendar Appointment Scheduling</h2>
+    
+    <div class="option">
+        <p>If you have a Google Workspace account:</p>
+        <ol>
+            <li>Enable appointment scheduling in Google Calendar</li>
+            <li>Create booking pages for different session types</li>
+            <li>Embed the booking page in an iframe</li>
+        </ol>
+        <p>Add to your website:</p>
+        <pre><code>&lt;iframe src="YOUR_GOOGLE_BOOKING_PAGE_URL" 
+        width="100%" 
+        height="600" 
+        frameborder="0"&gt;&lt;/iframe&gt;</code></pre>
+    </div>
+
+    <div class="warning">
+        <strong>Important Setup Notes:</strong>
+        <ul>
+            <li>Connect your calendar (Google, Outlook, etc.) to prevent double-booking</li>
+            <li>Set up payment processing if needed (Stripe integration available)</li>
+            <li>Configure time zones correctly</li>
+            <li>Test the booking flow thoroughly before going live</li>
+        </ul>
+    </div>
+
+    <h2>Testing Your Setup</h2>
+    
+    <div class="step">
+        <h3>Test Checklist</h3>
+        <ol>
+            <li>✓ Make a test booking</li>
+            <li>✓ Verify email confirmation is received</li>
+            <li>✓ Check calendar integration</li>
+            <li>✓ Test cancellation process</li>
+            <li>✓ Verify mobile responsiveness</li>
+            <li>✓ Test different time zones</li>
+        </ol>
+    </div>
+
+    <h2>Need Help?</h2>
+    <p>For additional support with setup:</p>
+    <ul>
+        <li>Cal.com Documentation: <a href="https://cal.com/docs" target="_blank">cal.com/docs</a></li>
+        <li>Calendly Help Center: <a href="https://help.calendly.com" target="_blank">help.calendly.com</a></li>
+        <li>EmailJS Setup: <a href="https://www.emailjs.com/docs" target="_blank">emailjs.com/docs</a></li>
+    </ul>
+
+    <p style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid #ddd; text-align: center; color: #666;">
+        <a href="index.html">← Back to Website</a>
+    </p>
+</body>
+</html>

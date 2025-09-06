@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alain Carpenter - Math & Science Tutoring</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-text">Alain Carpenter</span>
+                <span class="logo-subtitle">Math & Science Tutoring</span>
+            </div>
+            <div class="nav-menu" id="navMenu">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#services" class="nav-link">Services</a>
+                <a href="#courses" class="nav-link">Courses</a>
+                <a href="#scheduling" class="nav-link">Schedule</a>
+                <a href="#testimonials" class="nav-link">Testimonials</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+            <div class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Understanding Math & Science, One Student at a Time</h1>
+            <p class="hero-subtitle">Personalized tutoring for postsecondary students seeking clarity and confidence in their coursework</p>
+            <div class="hero-buttons">
+                <a href="#scheduling" class="btn btn-primary">Schedule a Session</a>
+                <a href="#about" class="btn btn-secondary">Learn More</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+                <rect x="50" y="50" width="300" height="200" fill="#f0e6d8" rx="10"/>
+                <circle cx="100" cy="100" r="25" fill="#8b7355" opacity="0.3"/>
+                <circle cx="300" cy="200" r="35" fill="#4a90e2" opacity="0.3"/>
+                <path d="M 80 150 Q 200 100 320 150" stroke="#8b7355" stroke-width="2" fill="none"/>
+                <text x="200" y="150" text-anchor="middle" fill="#333" font-family="Inter" font-size="20">∫ƒ(x)dx</text>
+                <text x="150" y="200" text-anchor="middle" fill="#333" font-family="Inter" font-size="18">H₂O</text>
+            </svg>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Hello, I'm Alain Carpenter</h3>
+                    <p>With a unique blend of technical expertise and educational passion, I bring a comprehensive approach to tutoring. My background as a chemical engineer provides deep understanding of scientific principles, while my degree in education ensures I can communicate complex concepts clearly.</p>
+                    <p>Over the past 3-4 years, I've had the privilege of teaching at several institutions, helping countless students transform their understanding of math and science from confusion to confidence.</p>
+                    <div class="credentials">
+                        <div class="credential-item">
+                            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+                                <path d="M6 12v5c0 1.7 3.3 3 6 3s6-1.3 6-3v-5"/>
+                            </svg>
+                            <div>
+                                <h4>Chemical Engineering</h4>
+                                <p>Strong foundation in applied sciences</p>
+                            </div>
+                        </div>
+                        <div class="credential-item">
+                            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                                <line x1="8" y1="21" x2="16" y2="21"/>
+                                <line x1="12" y1="17" x2="12" y2="21"/>
+                            </svg>
+                            <div>
+                                <h4>Education Degree</h4>
+                                <p>Pedagogical expertise for effective learning</p>
+                            </div>
+                        </div>
+                        <div class="credential-item">
+                            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                <circle cx="9" cy="7" r="4"/>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                            </svg>
+                            <div>
+                                <h4>3-4 Years Teaching</h4>
+                                <p>Experience across multiple institutions</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="hero.png" alt="Alain Carpenter - Tutoring" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+                            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+                        </svg>
+                    </div>
+                    <h3>One-on-One Tutoring</h3>
+                    <p>Personalized sessions tailored to your learning style and pace. Focus on your specific challenges with undivided attention.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+                            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+                        </svg>
+                    </div>
+                    <h3>Exam Preparation</h3>
+                    <p>Strategic review sessions designed to build confidence and master key concepts before important tests and finals.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                            <polyline points="14 2 14 8 20 8"/>
+                            <line x1="16" y1="13" x2="8" y2="13"/>
+                            <line x1="16" y1="17" x2="8" y2="17"/>
+                            <polyline points="10 9 9 9 8 9"/>
+                        </svg>
+                    </div>
+                    <h3>Assignment Support</h3>
+                    <p>Guidance through challenging homework and projects, helping you understand the process, not just the answers.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <polyline points="12 6 12 12 16 14"/>
+                        </svg>
+                    </div>
+                    <h3>Flexible Scheduling</h3>
+                    <p>Sessions available to fit your busy academic schedule, with online and in-person options to suit your needs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section id="courses" class="courses">
+        <div class="container">
+            <h2 class="section-title">Courses I Tutor</h2>
+            <div class="courses-container">
+                <div class="course-category">
+                    <h3>Mathematics</h3>
+                    <ul class="course-list">
+                        <li>Calculus I, II, & III</li>
+                        <li>Linear Algebra</li>
+                        <li>Differential Equations</li>
+                        <li>Statistics & Probability</li>
+                        <li>Discrete Mathematics</li>
+                        <li>Numerical Methods</li>
+                    </ul>
+                </div>
+                <div class="course-category">
+                    <h3>Chemistry</h3>
+                    <ul class="course-list">
+                        <li>General Chemistry I & II</li>
+                        <li>Organic Chemistry</li>
+                        <li>Physical Chemistry</li>
+                        <li>Analytical Chemistry</li>
+                        <li>Biochemistry</li>
+                        <li>Chemical Engineering Principles</li>
+                    </ul>
+                </div>
+                <div class="course-category">
+                    <h3>Physics</h3>
+                    <ul class="course-list">
+                        <li>Classical Mechanics</li>
+                        <li>Electricity & Magnetism</li>
+                        <li>Thermodynamics</li>
+                        <li>Waves & Optics</li>
+                        <li>Modern Physics</li>
+                        <li>Engineering Physics</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scheduling Section -->
+    <section id="scheduling" class="scheduling">
+        <div class="container">
+            <h2 class="section-title">Schedule a Session</h2>
+            <p class="section-subtitle">Book your tutoring session easily. Choose a time that works for you.</p>
+            
+            <!-- Cal.com embed will go here -->
+            <div class="scheduling-container">
+                <div class="cal-embed" id="cal-embed">
+                    <!-- Temporary placeholder for Cal.com widget -->
+                    <div class="scheduling-placeholder">
+                        <h3>Online Scheduling Coming Soon</h3>
+                        <p>In the meantime, please use the contact form below or email me directly to schedule a session.</p>
+                        <a href="#contact" class="btn btn-primary">Contact Me</a>
+                    </div>
+                </div>
+                <div class="scheduling-info">
+                    <h3>How It Works</h3>
+                    <ol>
+                        <li>Select your preferred date and time</li>
+                        <li>Choose the subject you need help with</li>
+                        <li>Receive a confirmation email</li>
+                        <li>Get a reminder 24 hours before</li>
+                    </ol>
+                    <div class="pricing-info">
+                        <h4>Session Information</h4>
+                        <p>• 60-minute sessions standard</p>
+                        <p>• Extended sessions available</p>
+                        <p>• Online or in-person options</p>
+                        <p>• Flexible rescheduling policy</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <h2 class="section-title">Student Success Stories</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"Alain helped me understand calculus in a way that finally made sense. His engineering background really shows in his practical examples."</p>
+                    <div class="testimonial-author">- Sarah M., Engineering Student</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"I was struggling with organic chemistry until I started sessions with Alain. His patient approach and clear explanations made all the difference."</p>
+                    <div class="testimonial-author">- James L., Pre-Med Student</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"The way Alain breaks down complex physics problems into manageable steps is incredible. I went from failing to getting an A in the course."</p>
+                    <div class="testimonial-author">- Maria K., Physics Major</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Get in Touch</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Let's Start Your Learning Journey</h3>
+                    <p>Have questions about tutoring? Want to discuss your specific needs? I'm here to help.</p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                <polyline points="22,6 12,13 2,6"/>
+                            </svg>
+                            <span>alain.carpenter@email.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                            </svg>
+                            <span>(555) 123-4567</span>
+                        </div>
+                        <div class="contact-item">
+                            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <polyline points="12 6 12 12 16 14"/>
+                            </svg>
+                            <span>Flexible hours, including evenings and weekends</span>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <select id="subject" name="subject" required>
+                            <option value="">Select Subject Area</option>
+                            <option value="mathematics">Mathematics</option>
+                            <option value="chemistry">Chemistry</option>
+                            <option value="physics">Physics</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" name="message" rows="4" placeholder="Tell me about your learning goals..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="footer-logo">Alain Carpenter</span>
+                    <p>Empowering students through personalized math and science education</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#about">About</a>
+                    <a href="#services">Services</a>
+                    <a href="#courses">Courses</a>
+                    <a href="#scheduling">Schedule</a>
+                    <a href="#contact">Contact</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Alain Carpenter Tutoring. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
